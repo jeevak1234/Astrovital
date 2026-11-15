@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTelemetry } from '../context/TelemetryContext';
 import {
   PlayCircle, RefreshCw, Sun, Heart, Shield,
-  Bandage, Brain, Users, CheckCircle2, AlertOctagon
+  HeartPulse, Brain, Users, CheckCircle2, AlertOctagon
 } from 'lucide-react';
 
 export function SimulatorPage() {
@@ -44,7 +44,7 @@ export function SimulatorPage() {
       id: 'wound_infection',
       name: 'Smart Bandage Wound Infection',
       category: 'Integumentary Biosensor',
-      icon: Bandage,
+      icon: HeartPulse,
       iconColor: 'text-amber-600 bg-amber-50',
       description: 'Nanofiber smart bandage detects bacterial proliferation: exudate pH shifts from 7.15 to alkaline 8.15 with local thermal rise to 38.6°C.',
       targetHotspot: '3D Forearm smart bandage glows red',

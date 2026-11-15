@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTelemetry } from '../context/TelemetryContext';
 import {
   Heart, Thermometer, Shield, Droplets, Activity,
-  Brain, Bandage, Bone, Sparkles, Wind, AlertTriangle, CheckCircle, ChevronRight
+  Brain, HeartPulse, Bone, Sparkles, Wind, AlertTriangle, CheckCircle, ChevronRight
 } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
@@ -128,7 +128,7 @@ export function MetricsPage() {
     {
       id: 'wound',
       title: '8. Smart Bandage Wound Biosensor',
-      icon: Bandage,
+      icon: HeartPulse,
       status: physio.woundInfectionWarning ? 'critical' : 'normal',
       currentValue: `pH ${physio.woundExudatePh.toFixed(2)}`,
       normalRange: 'pH 6.8 - 7.4 | Temp 34-35.5 °C',
