@@ -46,7 +46,7 @@ app.use('/api/scenarios', createScenariosRouter(physioEngine, hazardEngine));
 app.use('/api/reports', createReportsRouter(physioEngine, hazardEngine, alertEngine, historyBuffer));
 
 // Root health check
-app.get('/api/health', (req, res) => {
+app.get(['/', '/api', '/api/health'], (req, res) => {
   res.json({
     status: 'ONLINE',
     service: 'ASTROVITAL Telemetry Engine',
@@ -178,3 +178,6 @@ server.listen(PORT, () => {
   console.log(`⚕️  Simulated data for demonstration only. Not for real medical use.`);
   console.log(`================================================================`);
 });
+
+export default app;
+export { app, server };

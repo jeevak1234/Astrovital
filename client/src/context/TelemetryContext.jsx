@@ -112,9 +112,13 @@ export function TelemetryProvider({ children }) {
     try {
       const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
       const host = window.location.hostname || 'localhost';
-      const wsUrl = `${protocol}//${host}:5000`;
+      const wsUrl = import.meta.env.VITE_WS_URL || (window.location.port === '3000' ? `${protocol}//${host}:5000` : null);
 
-      ws = new WebSocket(wsUrl);
+      if (wsUrl) {
+        ws = new WebSocket(wsUrl);
+      } else {
+        setupFallbackSimulation();
+      }
 
       ws.onopen = () => {
         setConnectionStatus('live');
